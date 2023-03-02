@@ -6,10 +6,12 @@ import { BsPlay } from "react-icons/bs";
 import { AiOutlinePlus } from "react-icons/ai";
 import Loader from "./Components/Loader";
 import getFeatured from "./Services/getFeatured";
+import { AnimatePresence, motion } from "framer-motion";
 
 function App() {
   const [popular, setPopular] = useState([]);
   const [featured, setFeatured] = useState({});
+  const [hover, setHover] = useState(false);
 
   useEffect(() => {
     getPopular().then((res) => setPopular(res));
@@ -31,8 +33,8 @@ function App() {
             <div className="h-screen w-[85%] mx-auto">
               <nav className="w-full flex justify-between items-center py-3">
                 <div className="flex space-x-6 items-center">
-                  <h2 className="text-2xl font-medium text-emerald-400">
-                    LITE FLIX
+                  <h2 className="text-2xl text-emerald-400 font-thin">
+                    <span className="font-semibold">LITE</span>FLIX
                   </h2>
                   <h2 className="text-white text-sm mt-1">
                     + AGREGAR PELÍCULA
@@ -83,30 +85,55 @@ function App() {
                     </span>
                   </div>
                   <div className="flex-main space-y-2 pb-10">
-                    {popular.slice(0, 4).map((movie, index) => {
+                    {popular.slice(0, 4).map((movie, i) => {
+                      const isHover = i === hover;
                       return (
                         <div
-                          className="relative w-44 flex flex-col items-center justify-center"
-                          key={index}
+                          className="relative w-44 flex flex-col items-center justify-center overflow-hidden"
+                          key={i}
                         >
                           <div className="w-full">
                             <img
-                              key={index}
-                              src={`https://image.tmdb.org/t/p/w500/${popular[index].backdrop_path}`}
+                              key={i}
+                              src={`https://image.tmdb.org/t/p/w500/${popular[i].backdrop_path}`}
                               className="w-full object-cover"
                               alt=""
                             />
                           </div>
-                          <div className=" w-full h-full absolute flex flex-col items-center justify-center p-4 text-white text-center bg-black/20">
-                            <div className="p-2 rounded-full bg-black/30 border border-white">
-                              <BsPlay className="text-xl" />
-                            </div>
-                            <span className="text-xs uppercase tracking-[2px]">
-                              {movie.title.length > 15
-                                ? movie.title.slice(0, 15).concat("...")
-                                : movie.title}
-                            </span>
-                          </div>
+                          <motion.div
+                            initial={{x:-200}}
+                            animate={{x:0}}
+                            transition={{duration:.3}}
+                            className="w-full h-full absolute flex flex-col items-center justify-center p-4 text-white text-center bg-black/20"
+                            onMouseEnter={() => setHover(isHover ? false : i)}
+                            onMouseLeave={() => setHover(isHover ? true : i)}
+                          >
+                            {movie.title}
+                          </motion.div>
+                          <AnimatePresence>
+                            {!isHover && (
+                              <motion.div
+                                variants={{
+                                  open: { x: 200 },
+                                  close: { x: 0 },
+                                }}
+                                initial="close"
+                                whileHover="open"
+                                exit="close"
+                                transition={{ duration: 0.3, delay: 0.3 }}
+                                className="w-full h-full absolute flex flex-col items-center justify-center p-4 text-white text-center"
+                              >
+                                <div className="p-2 rounded-full bg-black/30 border border-white">
+                                  <BsPlay className="text-xl" />
+                                </div>
+                                <span className="text-xs uppercase tracking-[2px]">
+                                  {movie.title.length > 15
+                                    ? movie.title.slice(0, 15).concat("...")
+                                    : movie.title}
+                                </span>
+                              </motion.div>
+                            )}
+                          </AnimatePresence>
                         </div>
                       );
                     })}
