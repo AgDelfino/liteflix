@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import getPopular from "./Services/getPopular";
-import { TiBell } from "react-icons/ti";
+import { FaRegBell } from "react-icons/fa";
 import { FiChevronDown } from "react-icons/fi";
 import { BsPlay } from "react-icons/bs";
 import { AiOutlinePlus } from "react-icons/ai";
@@ -45,7 +45,7 @@ function App() {
                     <div className="w-[24px] h-[2px] bg-white"></div>
                   </div>
                   <div>
-                    <TiBell className="text-3xl" />
+                    <FaRegBell className="text-2xl" />
                   </div>
                   <img
                     src="https://www.agdelfino.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fabout.18711f97.jpg&w=1080&q=75"
@@ -69,7 +69,7 @@ function App() {
                       <BsPlay className="text-xl" />
                       REPRODUCIR
                     </button>
-                    <button className="bg-zinc-600/20 border border-white text-white text-sm px-8 py-2 flex items-center tracking-[2px] backdrop-blur-md">
+                    <button className="bg-zinc-600/20 border border-white text-white text-sm px-8 py-2 flex items-center tracking-[2px] backdrop-blur-lg">
                       <AiOutlinePlus className="text-xl" />
                       MI LISTA
                     </button>
@@ -85,12 +85,29 @@ function App() {
                   <div className="flex-main space-y-2 pb-10">
                     {popular.slice(0, 4).map((movie, index) => {
                       return (
-                        <img
+                        <div
+                          className="relative w-44 flex flex-col items-center justify-center"
                           key={index}
-                          src={`https://image.tmdb.org/t/p/w500/${popular[index].backdrop_path}`}
-                          className="w-44  object-cover"
-                          alt=""
-                        />
+                        >
+                          <div className="w-full">
+                            <img
+                              key={index}
+                              src={`https://image.tmdb.org/t/p/w500/${popular[index].backdrop_path}`}
+                              className="w-full object-cover"
+                              alt=""
+                            />
+                          </div>
+                          <div className=" w-full h-full absolute flex flex-col items-center justify-center p-4 text-white text-center bg-black/20">
+                            <div className="p-2 rounded-full bg-black/30 border border-white">
+                              <BsPlay className="text-xl" />
+                            </div>
+                            <span className="text-xs uppercase tracking-[2px]">
+                              {movie.title.length > 15
+                                ? movie.title.slice(0, 15).concat("...")
+                                : movie.title}
+                            </span>
+                          </div>
+                        </div>
                       );
                     })}
                   </div>
