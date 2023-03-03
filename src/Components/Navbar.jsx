@@ -42,7 +42,7 @@ const Navbar = ({setAddMovies}) => {
     <>
       <nav className="w-full flex justify-around md:justify-between items-center py-3 overflow-hidden">
         <motion.button
-        onClick={modalHandler}
+        onClick={addMoviesHandler}
           initial={{ rotateZ: -180, scale: 0, opacity: 0 }}
           animate={{ rotateZ: 180, scale: 1, opacity: 1 }}
           transition={{ duration: 1, delay: 0.5 }}

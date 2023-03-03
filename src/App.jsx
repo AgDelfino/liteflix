@@ -41,7 +41,7 @@ function App() {
               transition={{ duration: 2 }}
               src={`https://image.tmdb.org/t/p/w1280/${featured.backdrop_path}`}
               alt=""
-              className="h-full w-full object-cover"
+              className="h-full w-full object-cover object-center"
             />
           </div>
           <main className="absolute h-full w-full md:px-16 bg-gradient-to-t from-black to-black/40">

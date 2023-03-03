@@ -37,7 +37,7 @@ const AddMovie = ({setAddMovies}) => {
         <input
           type="text"
           placeholder="título"
-          className="focus:border-none text-sm uppercase bg-transparent border-b-2 border-zinc-500 text-center tracking-[3px] w-[60%] md:w-[35%]"
+          className="outline-none focus:bg-[#E5E5E5]/25 text-sm uppercase bg-transparent border-b-2 focus:border-emerald-400 border-zinc-500 text-center tracking-[3px] w-[60%] md:w-[35%] transition-all"
         />
         <button className="px-8 py-2 bg-[#E5E5E5] text-[#242424] text-sm lg:tracking-[3px] w-[60%] md:w-[35%]">
           SUBIR PELÍCULA
