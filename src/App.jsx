@@ -25,23 +25,30 @@ function App() {
       ) : (
         <div
           id="background"
-          className="h-screen w-full relative overflow-y-hidden"
+          className="h-screen w-full relative md:overflow-y-hidden"
         >
           <motion.img
-          initial={{scale: 1.2}}
-          animate={{scale: 1}}
-          transition={{duration: 3}}
+            initial={{ scale: 1.2 }}
+            animate={{ scale: 1 }}
+            transition={{ duration: 3 }}
             src={`https://image.tmdb.org/t/p/w1280/${featured.backdrop_path}`}
             alt=""
             className="fixed h-screen w-full object-cover"
           />
-          <main className="absolute h-screen w-full md:px-16 bg-gradient-to-t from-black/90 to-black/20">
+          <main className="absolute h-screen w-full md:px-16 bg-gradient-to-t from-black/90 to-black/40">
             <div className="h-screen w-full md:w-[85%] md:mx-auto">
               <Navbar />
-              <section className="w-full h-full flex flex-col md:flex-row">
-                <Featured featured={featured} />
-                <Popular popular={popular} />
-              </section>
+              <div className="flex flex-col md:flex-row">
+                <section
+                  id="featured"
+                  className="w-full h-screen flex flex-col md:flex-row justify-center items-center"
+                >
+                  <Featured featured={featured} />
+                </section>
+                <section id="popular">
+                  <Popular popular={popular} />
+                </section>
+              </div>
             </div>
           </main>
         </div>
