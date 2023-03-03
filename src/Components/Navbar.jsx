@@ -3,15 +3,15 @@ import { AiOutlinePlus } from "react-icons/ai";
 import { motion } from "framer-motion";
 import { useState } from "react";
 
-const Navbar = ({setAddMovies}) => {
+const Navbar = ({ setAddMovies }) => {
   const [hamb, setHamb] = useState(false);
   const hambHandler = () => {
     setHamb(!hamb);
   };
 
   const modalHandler = () => {
-    setAddMovies(true)
-  }
+    setAddMovies(true);
+  };
 
   const variants = {
     openT: {
@@ -35,14 +35,14 @@ const Navbar = ({setAddMovies}) => {
   };
 
   const addMoviesHandler = () => {
-    setAddMovies(true)
-  }
+    setAddMovies(true);
+  };
 
   return (
     <>
       <nav className="w-full flex justify-around md:justify-between items-center py-3 overflow-hidden">
         <motion.button
-        onClick={addMoviesHandler}
+          onClick={addMoviesHandler}
           initial={{ rotateZ: -180, scale: 0, opacity: 0 }}
           animate={{ rotateZ: 180, scale: 1, opacity: 1 }}
           transition={{ duration: 1, delay: 0.5 }}
@@ -122,14 +122,20 @@ const Navbar = ({setAddMovies}) => {
           >
             <FaRegBell className="text-2xl 2xl:text-3xl" />
           </motion.div>
-          <motion.img
+
+          <motion.a
             initial={{ rotateZ: -180, opacity: 0, scale: 0 }}
             animate={{ rotateZ: 0, opacity: 1, scale: 1 }}
-            transition={{ delay: 2 }}
-            src="https://www.agdelfino.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fabout.18711f97.jpg&w=1080&q=75"
-            alt=""
-            className="w-10 h-10 md:w-12 md:h-12 rounded-full object-cover"
-          />
+            transition={{duration: 1, delay: 2 }}
+            href="https://www.agdelfino.com/"
+            target={"_blank"}
+          >
+            <img
+              src="https://agdelfino.vercel.app/profile.jpg"
+              alt=""
+              className="w-10 h-10 md:w-12 md:h-12 rounded-full object-cover object-center cursor-pointer grayscale hover:grayscale-0 transition-all"
+            />
+          </motion.a>
         </motion.div>
       </nav>
     </>

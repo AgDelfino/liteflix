@@ -45,7 +45,7 @@ function App() {
             />
           </div>
           <main className="absolute h-full w-full md:px-16 bg-gradient-to-t from-black to-black/40">
-            <div className="h-screen w-screen md:w-[85%] md:mx-auto">
+            <div className="h-screen w-screen md:w-[85%] md:mx-auto max-w-[1280px]">
               <Navbar setAddMovies={setAddMovies} />
               <div className="flex flex-col lg:flex-row">
                 <section id="featured" className="w-full h-screen">
