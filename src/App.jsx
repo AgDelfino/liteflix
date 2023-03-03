@@ -11,6 +11,7 @@ import MoviesModal from "./Components/MoviesModal";
 function App() {
   const [popular, setPopular] = useState([]);
   const [featured, setFeatured] = useState({});
+  const [modal, setModal] = useState(false);
 
   useEffect(() => {
     setTimeout(() => {
@@ -41,7 +42,9 @@ function App() {
             <div className="h-screen w-screen md:w-[85%] md:mx-auto">
               <Navbar />
               <div className="flex flex-col lg:flex-row">
-                <MoviesModal />
+                <AnimatePresence>
+                  {modal && <MoviesModal />}
+                </AnimatePresence>
                 <section id="featured" className="w-full h-screen">
                   <Featured featured={featured} />
                 </section>
@@ -49,7 +52,11 @@ function App() {
                   id="popular"
                   className="h-screen lg:h-[80vh] flex md:items-center lg:items-center xl:items-start 2xl:mt-2"
                 >
-                  <Popular popular={popular} />
+                  <Popular
+                    popular={popular}
+                    setModal={setModal}
+                    modal={modal}
+                  />
                 </section>
               </div>
             </div>

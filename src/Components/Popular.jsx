@@ -1,15 +1,22 @@
 import { FiChevronDown } from "react-icons/fi";
 import { BsPlay } from "react-icons/bs";
 
-const Popular = ({popular}) => {
+const Popular = ({ popular, setModal, modal }) => {
+  
+  const handlerModal = () => {
+    setModal(!modal);
+  };
+
   return (
     <>
       <div className="flex flex-col items-center space-y-1 mx-auto justify-center">
         <div className="flex space-x-2">
-          <span className="text-slate-400 font-bold">VER: </span>
-          <span className="text-white flex items-center justify-center space-x-1">
-            POPULAR <FiChevronDown />{" "}
-          </span>
+          <span className="text-white">VER: </span>
+          <button onClick={handlerModal}>
+            <span className="text-white flex items-center justify-center space-x-1 font-semibold">
+              POPULAR <FiChevronDown className={`transform ${!modal ? "rotate-0" : "-rotate-180"} transition-transform`} />{" "}
+            </span>
+          </button>
         </div>
         <div className="flex flex-col space-y-2 md:space-y-0 md:grid md:grid-cols-2 md:gap-10 lg:flex lg:flex-col lg:gap-2">
           {popular.slice(0, 4).map((movie, i) => {

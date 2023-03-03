@@ -1,5 +1,5 @@
-import { AnimatePresence, motion } from "framer-motion";
-import { useEffect } from "react";
+import { motion } from "framer-motion";
+
 
 const Loader = ({ popular }) => {
   return (
