@@ -15,7 +15,7 @@ const Popular = ({popular}) => {
           {popular.slice(0, 4).map((movie, i) => {
             return (
               <div
-                className="relative w-44 flex flex-col items-center justify-center overflow-hidden"
+                className="relative w-44 flex flex-col items-center justify-center overflow-hidden 2xl:w-72"
                 key={i}
               >
                 <div className="w-full">
