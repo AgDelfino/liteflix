@@ -12,7 +12,7 @@ const Featured = ({featured}) => {
         <h1 className="text-4xl text-center md:text-left md:text-6xl -ml-[6px] text-emerald-400 font-semibold uppercase tracking-[2px]">
           {featured.title}
         </h1>
-        <div className="mt-4 md:mt-6 md:space-x-3 flex flex-col md:flex-row w-[90%] mx-auto space-y-2">
+        <div className="mt-4 md:mt-6 md:space-x-3 flex flex-col md:flex-row w-[90%]">
           <button className="bg-zinc-600 border border-zinc-600 text-white text-sm px-8 py-2 flex items-center justify-center tracking-[2px]">
             {" "}
             <BsPlay className="text-xl" />

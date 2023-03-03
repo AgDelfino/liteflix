@@ -3,7 +3,7 @@ import { BsPlay } from "react-icons/bs";
 
 const Popular = ({popular}) => {
   return (
-    <div>
+    <>
       <div className="w-full h-[90%]  flex flex-col items-center space-y-1 justify-center ">
         <div className="flex space-x-2">
           <span className="text-slate-400">VER: </span>
@@ -41,7 +41,7 @@ const Popular = ({popular}) => {
           })}
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

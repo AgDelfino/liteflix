@@ -25,7 +25,7 @@ function App() {
       ) : (
         <div
           id="background"
-          className="h-screen w-full relative md:overflow-y-hidden"
+          className="h-screen w-screen relative md:overflow-y-hidden"
         >
           <motion.img
             initial={{ scale: 1.2 }}
@@ -33,10 +33,10 @@ function App() {
             transition={{ duration: 3 }}
             src={`https://image.tmdb.org/t/p/w1280/${featured.backdrop_path}`}
             alt=""
-            className="fixed h-screen w-full object-cover"
+            className="fixed h-full w-full object-cover"
           />
-          <main className="absolute h-screen w-full md:px-16 bg-gradient-to-t from-black/90 to-black/40">
-            <div className="h-screen w-full md:w-[85%] md:mx-auto">
+          <main className="absolute h-screen w-screen md:px-16 bg-gradient-to-t from-black/90 to-black/40">
+            <div className="h-screen w-screen md:w-[85%] md:mx-auto">
               <Navbar />
               <div className="flex flex-col md:flex-row">
                 <section
