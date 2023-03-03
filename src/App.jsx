@@ -6,7 +6,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import Navbar from "./Components/Navbar";
 import Featured from "./Components/Featured";
 import Popular from "./Components/Popular";
-import MoviesModal from "./Components/MoviesModal";
+import AddMovie from "./Components/AddMovie";
 
 function App() {
   const [popular, setPopular] = useState([]);
@@ -28,6 +28,7 @@ function App() {
           id="background"
           className="h-screen w-screen relative lg:overflow-y-hidden"
         >
+          <AddMovie/>
           <div className="absolute lg:fixed overflow-hidden h-screen w-screen">
             <motion.img
               initial={{ scale: 1.2 }}

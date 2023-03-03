@@ -29,7 +29,7 @@ const Popular = ({ popular, setModal, modal }) => {
           {popular.slice(0, 4).map((movie, i) => {
             return (
               <div
-                className="relative w-44 md:w-64 lg:w-44 flex flex-col items-center justify-center overflow-hidden 2xl:w-72"
+                className="relative w-44 md:w-64 lg:w-44 flex flex-col items-center justify-center overflow-hidden 2xl:w-56"
                 key={i}
               >
                 <div className="w-full">

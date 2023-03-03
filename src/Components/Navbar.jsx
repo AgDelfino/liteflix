@@ -1,17 +1,45 @@
-import React from "react";
 import { FaRegBell } from "react-icons/fa";
 import { AiOutlinePlus } from "react-icons/ai";
 import { motion } from "framer-motion";
+import { useState } from "react";
 
 const Navbar = () => {
+  const [hamb, setHamb] = useState(false);
+
+  const hambHandler = () => {
+    setHamb(!hamb);
+  };
+
+  const variants = {
+    openT: {
+      rotateZ: 45,
+      translateY: 5.8,
+    },
+    closeT: {
+      rotateZ: 0,
+      TranslateY: 0,
+    },
+    openM: {
+      opacity: 0,
+    },
+    closeM: {
+      opacity: 1,
+    },
+    openB: {
+      rotateZ: -45,
+      translateY: -5.8,
+    },
+  };
+
   return (
     <>
       <nav className="w-full flex justify-around md:justify-between items-center py-3 overflow-hidden">
-        <motion.div 
-        initial={{rotateZ: -180, scale: 0, opacity:0}}
-        animate={{rotateZ: 180, scale: 1, opacity:1}}
-        transition={{duration: 1, delay: .5}}
-        className="md:hidden w-8 h-8 flex items-center justify-center border border-white rounded-full text-white">
+        <motion.div
+          initial={{ rotateZ: -180, scale: 0, opacity: 0 }}
+          animate={{ rotateZ: 180, scale: 1, opacity: 1 }}
+          transition={{ duration: 1, delay: 0.5 }}
+          className="md:hidden w-8 h-8 flex items-center justify-center border border-white rounded-full text-white"
+        >
           <AiOutlinePlus />
         </motion.div>
         <motion.div
@@ -22,17 +50,22 @@ const Navbar = () => {
           className="flex space-x-6 items-center"
         >
           <h2 className="text-2xl text-emerald-400 font-thin 2xl:text-4xl">
-          LITE<motion.span 
-          initial={{opacity:0}}
-          animate={{opacity:1}}
-          transition={{duration: 1, delay: 2}}
-          className="font-semibold">FLIX</motion.span>
+            LITE
+            <motion.span
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 1, delay: 2 }}
+              className="font-semibold"
+            >
+              FLIX
+            </motion.span>
           </h2>
-          <motion.h2 
-          initial={{x:200, opacity:0}}
-          animate={{x:0, opacity:1}}
-          transition={{duration:1, delay: 2.5}}
-          className="text-white text-sm mt-1 hidden md:block 2xl:text-lg">
+          <motion.h2
+            initial={{ x: 200, opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            transition={{ duration: 1, delay: 2.5 }}
+            className="text-white text-sm mt-1 hidden md:block 2xl:text-lg"
+          >
             + AGREGAR PELÍCULA
           </motion.h2>
         </motion.div>
@@ -43,24 +76,46 @@ const Navbar = () => {
           transition={{ duration: 1, delay: 1 }}
           className="flex md:space-x-10 text-white justify-center items-center"
         >
-          <div
+          <button
             id="home_made_hamb"
             className="md:flex flex-col space-y-1 hidden"
+            onClick={hambHandler}
           >
-            <div className="w-[24px] h-[2px] bg-white 2xl:w-[32px] 2xl:h-[3px]" />
-            <div className="w-[24px] h-[2px] bg-white 2xl:w-[32px] 2xl:h-[3px]" />
-            <div className="w-[24px] h-[2px] bg-white 2xl:w-[32px] 2xl:h-[3px]" />
-          </div>
-          <motion.div className="hidden md:flex"
-          initial={{rotateZ: 0}}
-          whileHover={{rotateZ: [0,2,4,6,4,2,0,-2,-4,-6,-4,-2,0,2,4,6,4,2,0,-2,-4,-6,-4,-2,0]}}
-          transition={{duration: .6}}>
-          
+            <motion.div
+              variants={variants}
+              initial="closeT"
+              animate={!hamb ? "closeT" : "openT"}
+              className="w-[24px] h-[2px] bg-white"
+            />
+            <motion.div
+              variants={variants}
+              initial="closeM"
+              animate={!hamb ? "closeM" : "openM"}
+              className="w-[24px] h-[2px] bg-white"
+            />
+            <motion.div
+              variants={variants}
+              initial="closeB"
+              animate={!hamb ? "closeB" : "openB"}
+              className="w-[24px] h-[2px] bg-white"
+            />
+          </button>
+          <motion.div
+            className="hidden md:flex"
+            initial={{ rotateZ: 0 }}
+            whileHover={{
+              rotateZ: [
+                0, 2, 4, 6, 4, 2, 0, -2, -4, -6, -4, -2, 0, 2, 4, 6, 4, 2, 0,
+                -2, -4, -6, -4, -2, 0,
+              ],
+            }}
+            transition={{ duration: 0.6 }}
+          >
             <FaRegBell className="text-2xl 2xl:text-3xl" />
           </motion.div>
           <motion.img
             initial={{ rotateZ: -180, opacity: 0, scale: 0 }}
-            animate={{rotateZ: 0, opacity: 1,  scale:1 }}
+            animate={{ rotateZ: 0, opacity: 1, scale: 1 }}
             transition={{ delay: 2 }}
             src="https://www.agdelfino.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fabout.18711f97.jpg&w=1080&q=75"
             alt=""
