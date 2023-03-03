@@ -9,6 +9,10 @@ const Navbar = ({setAddMovies}) => {
     setHamb(!hamb);
   };
 
+  const modalHandler = () => {
+    setAddMovies(true)
+  }
+
   const variants = {
     openT: {
       rotateZ: 45,
@@ -37,14 +41,15 @@ const Navbar = ({setAddMovies}) => {
   return (
     <>
       <nav className="w-full flex justify-around md:justify-between items-center py-3 overflow-hidden">
-        <motion.div
+        <motion.button
+        onClick={modalHandler}
           initial={{ rotateZ: -180, scale: 0, opacity: 0 }}
           animate={{ rotateZ: 180, scale: 1, opacity: 1 }}
           transition={{ duration: 1, delay: 0.5 }}
           className="md:hidden w-8 h-8 flex items-center justify-center border border-white rounded-full text-white"
         >
           <AiOutlinePlus />
-        </motion.div>
+        </motion.button>
         <motion.div
           initial={{ y: -200, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
