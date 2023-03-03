@@ -31,7 +31,7 @@ function App() {
             <motion.img
               initial={{ scale: 1.2 }}
               animate={{ scale: 1 }}
-              transition={{ duration: 3 }}
+              transition={{ duration: 2 }}
               src={`https://image.tmdb.org/t/p/w1280/${featured.backdrop_path}`}
               alt=""
               className="h-full w-full object-cover"
