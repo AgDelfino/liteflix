@@ -51,7 +51,11 @@ const Navbar = () => {
             <div className="w-[24px] h-[2px] bg-white 2xl:w-[32px] 2xl:h-[3px]" />
             <div className="w-[24px] h-[2px] bg-white 2xl:w-[32px] 2xl:h-[3px]" />
           </div>
-          <motion.div className="hidden md:flex">
+          <motion.div className="hidden md:flex"
+          initial={{rotateZ: 0}}
+          whileHover={{rotateZ: [0,2,4,6,4,2,0,-2,-4,-6,-4,-2,0,2,4,6,4,2,0,-2,-4,-6,-4,-2,0]}}
+          transition={{duration: .6}}>
+          
             <FaRegBell className="text-2xl 2xl:text-3xl" />
           </motion.div>
           <motion.img
