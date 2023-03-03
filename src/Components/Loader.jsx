@@ -6,7 +6,7 @@ const Loader = ({ popular }) => {
     <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
+      exit={{ opacity: 0}}
       className="h-screen w-full bg-black flex items-center justify-center"
     >
       <div className="relative flex justify-center items-center space-x-4 overflow-hidden">

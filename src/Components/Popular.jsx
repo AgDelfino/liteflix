@@ -6,7 +6,7 @@ const Popular = ({popular}) => {
     <>
       <div className="flex flex-col items-center space-y-1 mx-auto justify-center">
         <div className="flex space-x-2">
-          <span className="text-slate-400">VER: </span>
+          <span className="text-slate-400 font-bold">VER: </span>
           <span className="text-white flex items-center justify-center space-x-1">
             POPULAR <FiChevronDown />{" "}
           </span>

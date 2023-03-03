@@ -6,6 +6,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import Navbar from "./Components/Navbar";
 import Featured from "./Components/Featured";
 import Popular from "./Components/Popular";
+import MoviesModal from "./Components/MoviesModal";
 
 function App() {
   const [popular, setPopular] = useState([]);
@@ -20,9 +21,8 @@ function App() {
 
   return (
     <>
-      {!popular.length ? (
-        <Loader />
-      ) : (
+      <AnimatePresence>{!popular.length && <Loader />}</AnimatePresence>
+      {popular.length && (
         <div
           id="background"
           className="h-screen w-screen relative lg:overflow-y-hidden"
@@ -41,13 +41,14 @@ function App() {
             <div className="h-screen w-screen md:w-[85%] md:mx-auto">
               <Navbar />
               <div className="flex flex-col lg:flex-row">
-                <section
-                  id="featured"
-                  className="w-full h-screen"
-                >
+                <MoviesModal />
+                <section id="featured" className="w-full h-screen">
                   <Featured featured={featured} />
                 </section>
-                <section id="popular" className="h-screen lg:h-[80vh] flex md:items-center lg:items-center xl:items-start 2xl:mt-2">
+                <section
+                  id="popular"
+                  className="h-screen lg:h-[80vh] flex md:items-center lg:items-center xl:items-start 2xl:mt-2"
+                >
                   <Popular popular={popular} />
                 </section>
               </div>
