@@ -3,9 +3,8 @@ import { AiOutlinePlus } from "react-icons/ai";
 import { motion } from "framer-motion";
 import { useState } from "react";
 
-const Navbar = () => {
+const Navbar = ({setAddMovies}) => {
   const [hamb, setHamb] = useState(false);
-
   const hambHandler = () => {
     setHamb(!hamb);
   };
@@ -30,6 +29,10 @@ const Navbar = () => {
       translateY: -5.8,
     },
   };
+
+  const addMoviesHandler = () => {
+    setAddMovies(true)
+  }
 
   return (
     <>
@@ -60,14 +63,15 @@ const Navbar = () => {
               FLIX
             </motion.span>
           </h2>
-          <motion.h2
+          <motion.button
+            onClick={addMoviesHandler}
             initial={{ x: 200, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
             transition={{ duration: 1, delay: 2.5 }}
             className="text-white text-sm mt-1 hidden md:block 2xl:text-lg"
           >
             + AGREGAR PELÍCULA
-          </motion.h2>
+          </motion.button>
         </motion.div>
         <motion.div
           initial={{ x: 200, opacity: 0 }}

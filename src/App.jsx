@@ -12,6 +12,7 @@ function App() {
   const [popular, setPopular] = useState([]);
   const [featured, setFeatured] = useState({});
   const [modal, setModal] = useState(false);
+  const [addMovies, setAddMovies] = useState(false);
 
   useEffect(() => {
     setTimeout(() => {
@@ -28,7 +29,11 @@ function App() {
           id="background"
           className="h-screen w-screen relative lg:overflow-y-hidden"
         >
-          <AddMovie/>
+          <AnimatePresence>
+            {addMovies && (
+              <AddMovie addMovies={addMovies} setAddMovies={setAddMovies} />
+            )}
+          </AnimatePresence>
           <div className="absolute lg:fixed overflow-hidden h-screen w-screen">
             <motion.img
               initial={{ scale: 1.2 }}
@@ -41,9 +46,8 @@ function App() {
           </div>
           <main className="absolute h-full w-full md:px-16 bg-gradient-to-t from-black to-black/40">
             <div className="h-screen w-screen md:w-[85%] md:mx-auto">
-              <Navbar />
+              <Navbar setAddMovies={setAddMovies}/>
               <div className="flex flex-col lg:flex-row">
-                
                 <section id="featured" className="w-full h-screen">
                   <Featured featured={featured} />
                 </section>
