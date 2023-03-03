@@ -4,7 +4,7 @@ import { BsPlay } from "react-icons/bs";
 const Featured = ({featured}) => {
   return (
     <>
-      <div className="w-full h-screen flex flex-col justify-center">
+      <div className="flex flex-col justify-center h-full">
         <h3 className="text-sm text-center md:text-left md:text-md tracking-[6px] text-slate-400">
           SERIE ORIGINAL DE{" "}
           <span className="text-white font-semibold">LITEFLIX</span>

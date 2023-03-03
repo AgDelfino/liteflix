@@ -4,18 +4,18 @@ import { BsPlay } from "react-icons/bs";
 const Popular = ({popular}) => {
   return (
     <>
-      <div className="w-full h-[90%]  flex flex-col items-center space-y-1 justify-center ">
+      <div className="flex flex-col items-center space-y-1">
         <div className="flex space-x-2">
           <span className="text-slate-400">VER: </span>
           <span className="text-white flex items-center justify-center space-x-1">
             POPULAR <FiChevronDown />{" "}
           </span>
         </div>
-        <div className="flex-main space-y-2 pb-10">
+        <div className="flex flex-col md:grid md:grid-cols-2 md:gap-10 lg:flex lg:flex-col lg:gap-2">
           {popular.slice(0, 4).map((movie, i) => {
             return (
               <div
-                className="relative w-44 flex flex-col items-center justify-center overflow-hidden 2xl:w-72"
+                className="relative w-44 md:w-64 lg:w-44 flex flex-col items-center justify-center overflow-hidden 2xl:w-72"
                 key={i}
               >
                 <div className="w-full">
