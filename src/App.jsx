@@ -27,7 +27,7 @@ function App() {
       {popular.length && (
         <div
           id="background"
-          className="h-screen w-screen relative lg:overflow-y-hidden"
+          className="h-screen w-screen relative overflow-x-hidden lg:overflow-y-hidden"
         >
           <AnimatePresence>
             {addMovies && (
@@ -46,7 +46,7 @@ function App() {
           </div>
           <main className="absolute h-full w-full md:px-16 bg-gradient-to-t from-black to-black/40">
             <div className="h-screen w-screen md:w-[85%] md:mx-auto">
-              <Navbar setAddMovies={setAddMovies}/>
+              <Navbar setAddMovies={setAddMovies} />
               <div className="flex flex-col lg:flex-row">
                 <section id="featured" className="w-full h-screen">
                   <Featured featured={featured} />

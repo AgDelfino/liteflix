@@ -44,7 +44,7 @@ const AddMovie = ({setAddMovies}) => {
         </button>
         <button 
         onClick={exitHandler}
-        className="px-8 py-2 text-white border border-white text-sm lg:tracking-[3px] w-[60%] md:w-[35%]">
+        className="px-8 py-2 text-white border border-white text-sm lg:tracking-[3px] w-[60%] md:w-[35%] md:hidden">
           SALIR
         </button>
       </div>
