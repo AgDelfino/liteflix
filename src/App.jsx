@@ -42,15 +42,13 @@ function App() {
             <div className="h-screen w-screen md:w-[85%] md:mx-auto">
               <Navbar />
               <div className="flex flex-col lg:flex-row">
-                <AnimatePresence>
-                  {modal && <MoviesModal />}
-                </AnimatePresence>
+                
                 <section id="featured" className="w-full h-screen">
                   <Featured featured={featured} />
                 </section>
                 <section
                   id="popular"
-                  className="h-screen lg:h-[80vh] flex md:items-center lg:items-center xl:items-start 2xl:mt-2"
+                  className="h-screen lg:h-[80vh] flex md:items-center lg:items-center xl:items-center 2xl:mt-2"
                 >
                   <Popular
                     popular={popular}

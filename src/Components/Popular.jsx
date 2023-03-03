@@ -1,8 +1,9 @@
 import { FiChevronDown } from "react-icons/fi";
 import { BsPlay } from "react-icons/bs";
+import { AnimatePresence } from "framer-motion";
+import MoviesModal from "./MoviesModal";
 
 const Popular = ({ popular, setModal, modal }) => {
-  
   const handlerModal = () => {
     setModal(!modal);
   };
@@ -14,11 +15,17 @@ const Popular = ({ popular, setModal, modal }) => {
           <span className="text-white">VER: </span>
           <button onClick={handlerModal}>
             <span className="text-white flex items-center justify-center space-x-1 font-semibold">
-              POPULAR <FiChevronDown className={`transform ${!modal ? "rotate-0" : "-rotate-180"} transition-transform`} />{" "}
+              POPULAR{" "}
+              <FiChevronDown
+                className={`transform ${
+                  !modal ? "rotate-0" : "-rotate-180"
+                } transition-transform`}
+              />{" "}
             </span>
           </button>
         </div>
-        <div className="flex flex-col space-y-2 md:space-y-0 md:grid md:grid-cols-2 md:gap-10 lg:flex lg:flex-col lg:gap-2">
+        <div className="flex flex-col space-y-2 md:space-y-0 md:grid md:grid-cols-2 md:gap-10 lg:flex lg:flex-col lg:gap-2 relative">
+        <AnimatePresence>{modal && <MoviesModal />}</AnimatePresence>
           {popular.slice(0, 4).map((movie, i) => {
             return (
               <div
