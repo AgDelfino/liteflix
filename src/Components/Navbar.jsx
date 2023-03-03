@@ -55,9 +55,9 @@ const Navbar = () => {
             <FaRegBell className="text-2xl 2xl:text-3xl" />
           </motion.div>
           <motion.img
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 1, delay: 2 }}
+            initial={{ rotateZ: -180, opacity: 0, scale: 0 }}
+            animate={{rotateZ: 0, opacity: 1,  scale:1 }}
+            transition={{ delay: 2 }}
             src="https://www.agdelfino.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fabout.18711f97.jpg&w=1080&q=75"
             alt=""
             className="w-10 h-10 md:w-12 md:h-12 rounded-full object-cover"
