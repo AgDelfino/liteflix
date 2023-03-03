@@ -25,7 +25,7 @@ function App() {
       ) : (
         <div
           id="background"
-          className="h-screen w-screen relative md:overflow-y-hidden"
+          className="h-screen w-screen relative lg:overflow-y-hidden"
         >
           <motion.img
             initial={{ scale: 1.2 }}
@@ -35,10 +35,10 @@ function App() {
             alt=""
             className="fixed h-full w-full object-cover"
           />
-          <main className="absolute h-screen w-screen md:px-16 bg-gradient-to-t from-black/90 to-black/40">
+          <main className="absolute h-screen w-screen md:px-16 bg-gradient-to-t from-black to-black/10">
             <div className="h-screen w-screen md:w-[85%] md:mx-auto">
               <Navbar />
-              <div className="flex flex-col md:flex-row">
+              <div className="flex flex-col lg:flex-row">
                 <section
                   id="featured"
                   className="w-full h-screen flex flex-col md:flex-row justify-center items-center"
