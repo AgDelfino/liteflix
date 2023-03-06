@@ -7,7 +7,7 @@ const Loader = ({ popular }) => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0}}
-      className="h-screen w-full bg-black flex items-center justify-center"
+      className="h-screen w-screen bg-black flex items-center justify-center overflow-hidden"
     >
       <div className="relative flex justify-center items-center space-x-4 overflow-hidden">
         <div className="ml-0 flex flex-col md:flex-row  items-center justify-center md:first:space-x-6 text-center">

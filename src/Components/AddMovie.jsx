@@ -32,7 +32,6 @@ const AddMovie = ({ setAddMovies, postedMovies, setPostedMovies }) => {
     const movie = {original_title: title,  id, backdrop_path: url}
     
     setPostedMovies([...postedMovies, movie])
-    console.log(movie)
   }
 
   

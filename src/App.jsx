@@ -13,11 +13,13 @@ function App() {
   const [featured, setFeatured] = useState({});
   const [modal, setModal] = useState(false);
   const [addMovies, setAddMovies] = useState(false);
-  const [postedMovies, setPostedMovies] = useState([])
+  const [postedMovies, setPostedMovies] = useState(JSON.parse(localStorage.getItem("postedMovies")) || [])
 
   useEffect(() => {
-    console.log(postedMovies)
+    localStorage.setItem("postedMovies", JSON.stringify(postedMovies))
   }, [postedMovies])
+
+  
 
   useEffect(() => {
     setTimeout(() => {
@@ -27,7 +29,7 @@ function App() {
   }, []);
 
   return (
-    <>
+    <div className="overflow-hidden h-screen w-screen">
       <AnimatePresence>{!popular.length && <Loader />}</AnimatePresence>
       {popular.length && (
         <div
@@ -71,7 +73,7 @@ function App() {
           </main>
         </div>
       )}
-    </>
+    </div>
   );
 }
 

@@ -1,6 +1,5 @@
 import { FiChevronDown } from "react-icons/fi";
 import { BsPlay } from "react-icons/bs";
-import { FaPlay } from "react-icons/fa";
 import { AiFillStar } from "react-icons/ai";
 import { AnimatePresence, m, motion } from "framer-motion";
 import MoviesModal from "./MoviesModal";
@@ -86,7 +85,7 @@ const Popular = ({ popular, setModal, modal }) => {
                     >
                       <div className="flex items-center justify-left gap-2 ml-[2px] uppercase">
                         <div className="w-8 h-8 border border-white rounded-full hover:bg-white hover:text-emerald-500 transition-all z-30 flex items-center justify-center">
-                          <FaPlay className="text-xs ml-1" />
+                          <BsPlay className="text-lg ml-[2px]" />
                         </div>
                         <div className="text-xs">
                           {movie.title
