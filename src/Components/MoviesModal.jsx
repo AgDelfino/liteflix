@@ -7,7 +7,7 @@ const MoviesModal = () => {
       animate={{ opacity: 1}}
       exit={{  opacity: 0 }}
       transition={{duration: .2}}
-      className="absolute bg-[#242424] top-6 z-20 flex flex-col p-4 justify-evenly text-white"
+      className="absolute bg-[#242424] top-6 z-30 flex flex-col p-4 justify-evenly text-white"
     >
       <motion.div
         

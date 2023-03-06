@@ -4,25 +4,38 @@ import { motion } from "framer-motion";
 import { useState } from "react";
 import { uploadNewMovie } from "../Services/uploadImage";
 
-const AddMovie = ({ setAddMovies }) => {
+const AddMovie = ({ setAddMovies, postedMovies, setPostedMovies }) => {
   const exitHandler = () => {
     setAddMovies(false);
   };
 
   const [image, setImage] = useState({});
-  const [postedMovies, setPostedMovies] = useState([])
+  const [title, setTitle] = useState("")
+ 
+  
 
   const onFileChange = (e) => {
     let file = e.target.files[0]
     setImage(file)
-  } 
-
-  const onSubmit = async () => {
-    const uploaded =  await uploadNewMovie(image)
-    const id = uploaded.file
   }
 
+  const onTitleChange = (e) => {
+    let title = e.target.value
+    setTitle(title)
+  }
 
+  const onSubmit = async (e) => {
+    const uploaded =  await uploadNewMovie(image)
+    const id = uploaded.file
+    const url = `https://ucarecdn.com/${id}/`
+    
+    const movie = {original_title: title,  id, backdrop_path: url}
+    
+    setPostedMovies([...postedMovies, movie])
+    console.log(movie)
+  }
+
+  
 
   return (
     <motion.div
@@ -57,6 +70,7 @@ const AddMovie = ({ setAddMovies }) => {
         </label>
         
         <input
+          onChange={onTitleChange}
           type="text"
           placeholder="título"
           className="outline-none focus:bg-[#E5E5E5]/25 text-sm uppercase bg-transparent border-b-2 focus:border-emerald-400 border-zinc-500 text-center tracking-[3px] w-[60%] md:w-[35%] transition-all"

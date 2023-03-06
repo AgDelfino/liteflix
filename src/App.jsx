@@ -16,6 +16,10 @@ function App() {
   const [postedMovies, setPostedMovies] = useState([])
 
   useEffect(() => {
+    console.log(postedMovies)
+  }, [postedMovies])
+
+  useEffect(() => {
     setTimeout(() => {
       getFeatured().then((res) => setFeatured(res));
       getPopular().then((res) => setPopular(res));
@@ -32,7 +36,7 @@ function App() {
         >
           <AnimatePresence>
             {addMovies && (
-              <AddMovie addMovies={addMovies} setAddMovies={setAddMovies} />
+              <AddMovie addMovies={addMovies} setAddMovies={setAddMovies} postedMovies={postedMovies} setPostedMovies={setPostedMovies} />
             )}
           </AnimatePresence>
           <div className="absolute lg:fixed overflow-hidden h-screen w-screen">

@@ -76,7 +76,7 @@ const Popular = ({ popular, setModal, modal }) => {
 
                 {/* Contenedor de información secundaria */}
                 <AnimatePresence>
-                  {isShown === movie.id && console.log("ME RENDERIZO ?? MAE?? !?!?!") && (
+                  {isShown === movie.id &&(
                     <motion.div
                       initial={{  opacity: 0 }}
                       whileInView={{ opacity: 1 }}
