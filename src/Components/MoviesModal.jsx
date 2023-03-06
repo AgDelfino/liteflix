@@ -7,12 +7,12 @@ const MoviesModal = () => {
       animate={{ opacity: 1}}
       exit={{  opacity: 0 }}
       transition={{duration: .2}}
-      className="absolute w-[205px] h-[75px] 2xl:w-[300px] bg-[#242424] lg:right-0 lg:top-0 md:right-44 z-20 flex flex-col p-4 justify-evenly text-white"
+      className="absolute bg-[#242424] top-6 z-20 flex flex-col p-4 justify-evenly text-white"
     >
       <motion.div
         
       >
-        <div className="">POPULARES</div>
+        <div>POPULARES</div>
         <div>MI LISTA</div>
       </motion.div>
     </motion.div>
