@@ -2,6 +2,7 @@ import { AiOutlinePaperClip } from "react-icons/ai";
 import { HiOutlineX } from "react-icons/hi";
 import { motion } from "framer-motion";
 import { useState } from "react";
+import { uploadNewMovie } from "../Services/uploadImage";
 
 const AddMovie = ({ setAddMovies }) => {
   const exitHandler = () => {
@@ -9,14 +10,19 @@ const AddMovie = ({ setAddMovies }) => {
   };
 
   const [image, setImage] = useState({});
+  const [postedMovies, setPostedMovies] = useState([])
 
   const onFileChange = (e) => {
-    let file = JSON.stringify(e.target.files[0])
-    console.log(file)
+    let file = e.target.files[0]
     setImage(file)
   } 
 
-  console.log(image)
+  const onSubmit = async () => {
+    const uploaded =  await uploadNewMovie(image)
+    const id = uploaded.file
+  }
+
+
 
   return (
     <motion.div
@@ -55,7 +61,7 @@ const AddMovie = ({ setAddMovies }) => {
           placeholder="título"
           className="outline-none focus:bg-[#E5E5E5]/25 text-sm uppercase bg-transparent border-b-2 focus:border-emerald-400 border-zinc-500 text-center tracking-[3px] w-[60%] md:w-[35%] transition-all"
         />
-        <button className="px-8 py-2 bg-[#E5E5E5] text-[#242424] text-sm lg:tracking-[3px] w-[60%] md:w-[35%]">
+        <button onClick={onSubmit} className="px-8 py-2 bg-[#E5E5E5] text-[#242424] text-sm lg:tracking-[3px] w-[60%] md:w-[35%]">
           SUBIR PELÍCULA
         </button>
         <button

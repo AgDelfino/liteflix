@@ -76,19 +76,19 @@ const Popular = ({ popular, setModal, modal }) => {
 
                 {/* Contenedor de información secundaria */}
                 <AnimatePresence>
-                  {isShown === movie.id && (
+                  {isShown === movie.id && console.log("ME RENDERIZO ?? MAE?? !?!?!") && (
                     <motion.div
-                      initial={{ x: 200, opacity: 0 }}
-                      whileInView={{ x: 0, opacity: 1 }}
-                      exit={{ x: 200, opacity: 0 }}
+                      initial={{  opacity: 0 }}
+                      whileInView={{ opacity: 1 }}
+                      exit={{  opacity: 0 }}
                       transition={{ duration: 0.3 }}
-                      className="w-full h-full absolute bg-black/35 flex flex-col justify-end text-white p-3 gap-3"
+                      className="w-full h-full absolute bg-black/35 flex flex-col justify-end text-white p-3 gap-3 bg-black/30"
                     >
-                      <div className="flex items-center gap-2 ml-[2px] uppercase">
-                        <div className="p-2 border border-white rounded-full hover:bg-white hover:text-emerald-500 transition-all z-30">
-                          <FaPlay className="ml-1" />
+                      <div className="flex items-center justify-left gap-2 ml-[2px] uppercase">
+                        <div className="w-8 h-8 border border-white rounded-full hover:bg-white hover:text-emerald-500 transition-all z-30 flex items-center justify-center">
+                          <FaPlay className="text-xs ml-1" />
                         </div>
-                        <div>
+                        <div className="text-xs">
                           {movie.title
                             .slice(0, 15)
                             .concat(movie.title.length > 15 ? "..." : "")}

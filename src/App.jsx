@@ -13,6 +13,7 @@ function App() {
   const [featured, setFeatured] = useState({});
   const [modal, setModal] = useState(false);
   const [addMovies, setAddMovies] = useState(false);
+  const [postedMovies, setPostedMovies] = useState([])
 
   useEffect(() => {
     setTimeout(() => {
