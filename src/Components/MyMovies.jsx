@@ -27,7 +27,7 @@ const MyMovies = ({postedMovies}) => {
                 exit={{ opacity: 0 }}
                 transition={{duration: 1}}
                 className="relative w-48 md:w-64 lg:w-44 flex flex-col items-center justify-center overflow-hidden 2xl:w-56"
-                key={i}
+                key={i+1}
               >
                 {/* Contenedor de Imange de fondo */}
                 <motion.div
@@ -37,7 +37,7 @@ const MyMovies = ({postedMovies}) => {
                   className="w-full"
                 >
                   <img
-                    key={i}
+              
                     src={movie.backdrop_path}
                     className="w-full aspect-video object-cover"
                     alt=""
@@ -47,8 +47,7 @@ const MyMovies = ({postedMovies}) => {
                 <motion.div
                   initial={{ y: 200 }}
                   animate={{ y: 0 }}
-                  exit={{ y: 200 }}
-                  transition={{duration: .2}}
+                  transition={{duration: 1}}
                   className="w-full h-full absolute flex flex-col items-center justify-center p-4 text-white text-center bg-black/20 z-20"
                   onMouseEnter={() => setIsShown(movie.id)}
                   onMouseLeave={() => setIsShown(false)}

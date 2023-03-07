@@ -11,7 +11,7 @@ const Popular = ({ popular, myMovies }) => {
   return (
     <>
       <div className="flex flex-col items-center space-y-1 mx-auto justify-center relative">
-        <div className="flex flex-col space-y-2 md:space-y-0 md:grid md:grid-cols-2 md:gap-10 lg:flex lg:flex-col lg:gap-2 relative overflow-hidden">
+        <div className="flex flex-col space-y-2 md:space-y-0 md:grid md:grid-cols-2 md:gap-10 lg:flex lg:flex-col lg:gap-2 relative">
           <AnimatePresence>
             {!myMovies &&
               popular.slice(0, 4).map((movie, i) => {
@@ -28,7 +28,7 @@ const Popular = ({ popular, myMovies }) => {
                       className="w-full"
                     >
                       <img
-                        key={i}
+                  
                         src={`https://image.tmdb.org/t/p/w500/${popular[i].backdrop_path}`}
                         className="w-full aspect-video object-cover"
                         alt=""
@@ -50,7 +50,7 @@ const Popular = ({ popular, myMovies }) => {
                             initial={{ x: -200 }}
                             animate={{ x: 0, transition: { duration: 0.3 } }}
                             exit={{ x: -200, transition: { duration: 0.3 } }}
-                            className="items-center gap-2 flex justify-center w-full whitespace-nowrap"
+                            className="items-center gap-2 flex justify-start w-full whitespace-nowrap"
                           >
                             <div className="p-2 rounded-full bg-black/30 border border-white">
                               <BsPlay className="text-xl" />

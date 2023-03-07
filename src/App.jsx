@@ -74,9 +74,9 @@ function App() {
                 </section>
                 <section
                   id="popular"
-                  className="h-screen lg:h-[80vh] flex items-start pt-16 md:pt-28 lg:pt-6 2xl:pt-4 flex-col justify-start"
+                  className="h-screen lg:h-[80vh] flex items-start pt-16 md:pt-28 lg:pt-6 2xl:pt-4 flex-col justify-start overflow-hidden"
                 >
-                  <div className="flex space-x-2">
+                  <div className="flex space-x-2 relative">
                     <span className="text-white">VER: </span>
                     <button onClick={handlerModal}>
                       <span className="text-white flex items-center justify-center space-x-1 font-semibold">
@@ -97,6 +97,7 @@ function App() {
                       )}
                     </AnimatePresence>
                   </div>
+                  
                   <AnimatePresence>
                     {!myMovies && (
                       <Popular
