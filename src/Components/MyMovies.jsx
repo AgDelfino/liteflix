@@ -20,12 +20,12 @@ const MyMovies = ({ postedMovies }) => {
           postedMovies.map((movie, i) => {
             return (
               <motion.div
+                key={movie.id}
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
                 transition={{ duration: 1 }}
                 className="relative w-48 md:w-64 lg:w-44 flex flex-col items-center justify-center 2xl:w-56"
-                
               >
                 {/* Contenedor de Imange de fondo */}
                 <motion.div
