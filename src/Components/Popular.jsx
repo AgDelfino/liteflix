@@ -18,7 +18,7 @@ const Popular = ({ popular, myMovies }) => {
                 return (
                   <div
                     className="relative w-48 md:w-64 lg:w-44 flex flex-col items-center justify-center overflow-hidden 2xl:w-56"
-                    key={i}
+                
                   >
                     {/* Contenedor de Imange de fondo */}
                     <motion.div

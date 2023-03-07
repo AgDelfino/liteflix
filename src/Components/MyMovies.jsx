@@ -13,7 +13,7 @@ const MyMovies = ({ postedMovies }) => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.4 }}
-      className="overflow-y-scroll scrollbar-thin  scrollbar-thumb-black/90 flex flex-col space-y-2 md:space-y-0 md:grid md:grid-cols-2 md:gap-10 lg:flex lg:flex-col lg:gap-2 relative max-h-[27rem]"
+      className="overflow-y-scroll scrollbar-thin  scrollbar-thumb-black/90 flex flex-col space-y-2 md:space-y-0 md:grid md:grid-cols-2 md:gap-10 lg:flex lg:flex-col lg:gap-2 relative max-h-[27rem] lg:max-h-full"
     >
       <AnimatePresence>
         {postedMovies.length > 0 &&
@@ -25,7 +25,7 @@ const MyMovies = ({ postedMovies }) => {
                 exit={{ opacity: 0 }}
                 transition={{ duration: 1 }}
                 className="relative w-48 md:w-64 lg:w-44 flex flex-col items-center justify-center 2xl:w-56"
-                key={i + 1}
+                
               >
                 {/* Contenedor de Imange de fondo */}
                 <motion.div
