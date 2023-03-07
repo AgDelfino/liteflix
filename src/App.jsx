@@ -80,8 +80,8 @@ function App() {
                   <div className="flex space-x-2 relative">
                     <span className="text-white">VER: </span>
                     <button onClick={handlerModal}>
-                      <span className="text-white flex items-center justify-center space-x-1 font-semibold">
-                        POPULAR{" "}
+                      <span className="text-white flex items-center justify-center space-x-1 font-semibold uppercase tracking-[1px]">
+                        {myMovies ? "mis películas" : "populares"}
                         <FiChevronDown
                           className={`transform ${
                             !modal ? "rotate-0" : "-rotate-180"
