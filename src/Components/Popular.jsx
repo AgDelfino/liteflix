@@ -48,7 +48,7 @@ const Popular = ({ popular, myMovies }) => {
                             initial={{ x: -200 }}
                             animate={{ x: 0, transition: { duration: 0.3 } }}
                             exit={{ x: -200, transition: { duration: 0.3 } }}
-                            className="items-center gap-2 flex justify-start w-full whitespace-nowrap"
+                            className="items-center gap-2 flex flex-col md:flex-row justify-start w-full whitespace-nowrap"
                           >
                             <div className="p-2 rounded-full bg-black/30 border border-white">
                               <BsPlay className="text-xl" />

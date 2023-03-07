@@ -57,7 +57,7 @@ const MyMovies = ({ postedMovies }) => {
                         animate={{ opacity: 1, x: 0 }}
                         exit={{ opacity: 0, x: -100 }}
                         transition={{ duration: 0.2 }}
-                        className="items-center gap-2 flex justify-start w-full whitespace-nowrap"
+                        className="items-center gap-2 flex flex-col md:flex-row justify-start w-full whitespace-nowrap"
                       >
                         <div className="p-2 rounded-full bg-black/30 border border-white">
                           <BsPlay className="text-xl" />
