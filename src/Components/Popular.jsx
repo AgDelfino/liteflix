@@ -70,9 +70,9 @@ const Popular = ({ popular, setModal, modal, postedMovies }) => {
                       <AnimatePresence>
                         {isShown !== movie.id && (
                           <motion.div
-                            initial={{ opacity: 0, x: 0 }}
-                            animate={{ opacity: 1, x: 0 }}
-                            exit={{ opacity: 0, x: -100 }}
+                            initial={{ x: -200 }}
+                            animate={{ x: 0, transition:{duration: .3} }}
+                            exit={{  x: -200, transition:{duration: .3} }}
                             className="items-center gap-2 flex justify-start w-full whitespace-nowrap"
                           >
                             <div className="p-2 rounded-full bg-black/30 border border-white">
@@ -92,9 +92,9 @@ const Popular = ({ popular, setModal, modal, postedMovies }) => {
                     <AnimatePresence>
                       {isShown === movie.id && (
                         <motion.div
-                          initial={{ opacity: 0 }}
-                          whileInView={{ opacity: 1 }}
-                          exit={{ opacity: 0 }}
+                          initial={{ opacity: 0, x: 0 }}
+                          whileInView={{ opacity: 1, x:0 }}
+                          exit={{ opacity: 0, x: 200 }}
                           transition={{ duration: 0.3 }}
                           className="w-full h-full absolute bg-black/35 flex flex-col justify-end text-white p-3 gap-3 bg-black/30"
                         >
