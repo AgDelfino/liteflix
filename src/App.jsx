@@ -19,6 +19,7 @@ function App() {
   const [postedMovies, setPostedMovies] = useState(
     JSON.parse(localStorage.getItem("postedMovies")) || []
   );
+  const [blockScroll, setBlockScroll] = useState(false)
   const [myMovies, setMyMovies] = useState(false);
 
   const handlerModal = () => {
@@ -36,13 +37,17 @@ function App() {
     }, 2500);
   }, []);
 
+  useEffect(() => {
+    console.log(blockScroll)
+  },[blockScroll])
+
   return (
     <div className="overflow-hidden h-screen w-screen">
       <AnimatePresence>{!popular.length && <Loader />}</AnimatePresence>
       {popular.length && (
         <div
           id="background"
-          className="h-screen w-screen relative overflow-x-hidden lg:overflow-y-hidden"
+          className={`h-screen w-screen relative overflow-x-hidden ${blockScroll ? "overflow-y-hidden" : "overflow-y-scroll"} lg:overflow-y-hidden`}
         >
           <AnimatePresence>
             {addMovies && (
@@ -51,6 +56,7 @@ function App() {
                 setAddMovies={setAddMovies}
                 postedMovies={postedMovies}
                 setPostedMovies={setPostedMovies}
+                setBlockScroll={setBlockScroll}
               />
             )}
           </AnimatePresence>
@@ -67,7 +73,7 @@ function App() {
           </div>
           <main className="absolute h-full w-full md:px-16 bg-gradient-to-t from-black to-black/40">
             <div className="h-screen w-screen md:w-[85%] md:mx-auto max-w-[1280px]">
-              <Navbar setAddMovies={setAddMovies} />
+              <Navbar setAddMovies={setAddMovies} setBlockScroll={setBlockScroll}/>
               <div className="flex flex-col lg:flex-row justify-between overflow-hidden">
                 <section id="featured" className=" h-screen">
                   <Featured featured={featured} />
@@ -95,6 +101,7 @@ function App() {
                           setMyMovies={setMyMovies}
                           setModal={setModal}
                           myMovies={myMovies}
+                          
                         />
                       )}
                     </AnimatePresence>

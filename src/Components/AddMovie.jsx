@@ -8,7 +8,7 @@ import { FileUploader } from "react-drag-drop-files";
 import Congrats from "./Congrats";
 import getViewportWidth from "../Services/getViewportWidth";
 
-const AddMovie = ({ setAddMovies, postedMovies, setPostedMovies }) => {
+const AddMovie = ({ setAddMovies, postedMovies, setPostedMovies, setBlockScroll }) => {
   const [image, setImage] = useState(null);
   const [title, setTitle] = useState("");
   const [file, setFile] = useState(null);
@@ -18,6 +18,7 @@ const AddMovie = ({ setAddMovies, postedMovies, setPostedMovies }) => {
 
   const exitHandler = () => {
     setAddMovies(false);
+    setBlockScroll(false)
   };
 
   const handleChange = (file) => {

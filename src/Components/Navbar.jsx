@@ -4,7 +4,7 @@ import { GoPlus } from "react-icons/go";
 import { motion } from "framer-motion";
 import { useState } from "react";
 
-const Navbar = ({ setAddMovies }) => {
+const Navbar = ({ setAddMovies, setBlockScroll }) => {
   const [hamb, setHamb] = useState(false);
   const hambHandler = () => {
     setHamb(!hamb);
@@ -35,8 +35,9 @@ const Navbar = ({ setAddMovies }) => {
     },
   };
 
-  const addMoviesHandler = () => {
+  const addMoviesHandler = ({}) => {
     setAddMovies(true);
+    setBlockScroll(true)
   };
 
   return (
