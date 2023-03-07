@@ -54,6 +54,7 @@ function App() {
               />
             )}
           </AnimatePresence>
+
           <div className="absolute lg:fixed overflow-hidden h-screen w-screen">
             <motion.img
               initial={{ scale: 1.2 }}
@@ -74,7 +75,7 @@ function App() {
 
                 <section
                   id="popular"
-                  className="h-screen lg:h-[80vh] flex items-center pt-16 md:pt-22 lg:pt-6 2xl:pt-4 flex-col justify-start overflow-y-hidden"
+                  className="h-screen lg:h-[80vh] flex items-center pt-16 md:pt-28 lg:pt-6 2xl:pt-4 flex-col justify-start overflow-hidden lg:w-[20%]"
                 >
                   <div className="flex space-x-2 relative">
                     <span className="text-white">VER: </span>
