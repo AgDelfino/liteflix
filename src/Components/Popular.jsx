@@ -85,7 +85,7 @@ const Popular = ({ popular, myMovies }) => {
                                 .concat(movie.title.length > 15 ? "..." : "")}
                             </div>
                           </div>
-                          <div className="flex justify-between">
+                          <div className="flex justify-around -ml-4 md:-ml-5">
                             <div className="flex items-center">
                               <AiFillStar className="text-emerald-400" />
                               {movie.vote_average}

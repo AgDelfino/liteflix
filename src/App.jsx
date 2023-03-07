@@ -68,14 +68,14 @@ function App() {
           <main className="absolute h-full w-full md:px-16 bg-gradient-to-t from-black to-black/40">
             <div className="h-screen w-screen md:w-[85%] md:mx-auto max-w-[1280px]">
               <Navbar setAddMovies={setAddMovies} />
-              <div className="flex flex-col lg:flex-row justify-between">
+              <div className="flex flex-col lg:flex-row justify-between overflow-hidden">
                 <section id="featured" className=" h-screen">
                   <Featured featured={featured} />
                 </section>
 
                 <section
                   id="popular"
-                  className="h-screen lg:h-[80vh] flex items-center pt-16 md:pt-28 lg:pt-6 2xl:pt-4 flex-col justify-start overflow-hidden"
+                  className="h-screen lg:h-[80vh] flex items-center pt-16 md:pt-22 lg:pt-6 2xl:pt-4 flex-col justify-start overflow-y-hidden"
                 >
                   <div className="flex space-x-2 relative">
                     <span className="text-white">VER: </span>
