@@ -94,6 +94,7 @@ function App() {
                         <MoviesModal
                           setMyMovies={setMyMovies}
                           setModal={setModal}
+                          myMovies={myMovies}
                         />
                       )}
                     </AnimatePresence>

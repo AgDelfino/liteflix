@@ -1,9 +1,8 @@
 import { BsPlay } from "react-icons/bs";
 import { AiFillStar } from "react-icons/ai";
-import { AnimatePresence, m, motion } from "framer-motion";
-import MoviesModal from "./MoviesModal";
+import { AnimatePresence, motion } from "framer-motion";
 import { useState } from "react";
-import MyMovies from "./MyMovies";
+
 
 const Popular = ({ popular, myMovies }) => {
   const [isShown, setIsShown] = useState(false);
