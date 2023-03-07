@@ -1,8 +1,9 @@
 import { motion } from "framer-motion";
 
-const Congrats = ({ title, setAddMovies, addMovies }) => {
+const Congrats = ({ title, setAddMovies, setBlockScroll }) => {
   const goHomeHandler = () => {
     setAddMovies(false);
+    setBlockScroll(false)
   };
 
   return (

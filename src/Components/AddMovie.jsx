@@ -132,6 +132,7 @@ const AddMovie = ({ setAddMovies, postedMovies, setPostedMovies, setBlockScroll 
             setAddMovies={setAddMovies}
             file={file}
             title={title}
+            setBlockScroll={setBlockScroll}
           />
         )}
       </AnimatePresence>

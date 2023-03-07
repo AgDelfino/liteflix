@@ -37,9 +37,6 @@ function App() {
     }, 2500);
   }, []);
 
-  useEffect(() => {
-    console.log(blockScroll)
-  },[blockScroll])
 
   return (
     <div className="overflow-hidden h-screen w-screen">
