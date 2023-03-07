@@ -19,7 +19,6 @@ const AddMovie = ({ setAddMovies, postedMovies, setPostedMovies }) => {
 
   const handleChange = (file) => {
 //    let file = e.target.files[0];
-    console.log(file)
     if (file.type.startsWith("image/") && file.size > 500) {
       setImage(file);
       setFile(file);
@@ -32,7 +31,7 @@ const AddMovie = ({ setAddMovies, postedMovies, setPostedMovies }) => {
   };
 
   useEffect(()=> {
-    FileUploader
+    console.log(file)
   },[file])
 
   const onTitleChange = (e) => {

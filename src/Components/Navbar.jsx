@@ -1,5 +1,6 @@
 import { FaRegBell } from "react-icons/fa";
 import { AiOutlinePlus } from "react-icons/ai";
+import { GoPlus } from "react-icons/go";
 import { motion } from "framer-motion";
 import { useState } from "react";
 
@@ -73,9 +74,10 @@ const Navbar = ({ setAddMovies }) => {
             initial={{ x: 200, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
             transition={{ duration: 1, delay: 2.5 }}
-            className="text-white text-sm mt-1 hidden md:block 2xl:text-lg"
+            className="text-white text-sm mt-1 hidden md:flex 2xl:text-lg items-center"
           >
-            + AGREGAR PELÍCULA
+            <GoPlus />
+            <span>AGREGAR PELÍCULA</span>
           </motion.button>
         </motion.div>
         <motion.div
@@ -126,7 +128,7 @@ const Navbar = ({ setAddMovies }) => {
           <motion.a
             initial={{ rotateZ: -180, opacity: 0, scale: 0 }}
             animate={{ rotateZ: 0, opacity: 1, scale: 1 }}
-            transition={{duration: 1, delay: 2 }}
+            transition={{ duration: 1, delay: 2 }}
             href="https://www.agdelfino.com/"
             target={"_blank"}
           >

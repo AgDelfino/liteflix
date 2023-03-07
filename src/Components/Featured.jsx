@@ -22,7 +22,7 @@ const Featured = ({ featured }) => {
         className="text-3xl text-center md:text-left md:text-6xl text-emerald-400 font-semibold uppercase tracking-[2px]">
           {featured.title}
         </motion.h1>
-        <div className="mt-4 md:mt-6 md:space-x-3 flex flex-col md:flex-row w-[80%] space-y-4 md:space-y-0">
+        <div className="mt-4 md:mt-6 md:space-x-3 flex flex-col md:flex-row w-[80%] md:w-full space-y-4 md:space-y-0">
           <button className="bg-zinc-600 border border-zinc-600 text-white text-sm px-8 py-2 flex items-center justify-center tracking-[2px]">
             {" "}
             <BsPlay className="text-xl" />

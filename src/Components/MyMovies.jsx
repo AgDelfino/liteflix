@@ -5,16 +5,14 @@ import { TbMovieOff } from "react-icons/tb";
 import { AnimatePresence, motion } from "framer-motion";
 import { useState } from "react";
 
-const MyMovies = ({postedMovies}) => {
-
-  const [isShown, setIsShown] = useState(false)
+const MyMovies = ({ postedMovies }) => {
+  const [isShown, setIsShown] = useState(false);
 
   return (
     <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      
-      transition={{ duration: .4 }}
+      transition={{ duration: 0.4 }}
       className="flex flex-col space-y-2 md:space-y-0 md:grid md:grid-cols-2 md:gap-10 lg:flex lg:flex-col lg:gap-2 relative"
     >
       <AnimatePresence>
@@ -25,19 +23,18 @@ const MyMovies = ({postedMovies}) => {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
-                transition={{duration: 1}}
+                transition={{ duration: 1 }}
                 className="relative w-48 md:w-64 lg:w-44 flex flex-col items-center justify-center overflow-hidden 2xl:w-56"
-                key={i+1}
+                key={i + 1}
               >
                 {/* Contenedor de Imange de fondo */}
                 <motion.div
                   initial={{ y: 200 }}
                   animate={{ y: 0 }}
-                  transition={{duration: .3}}
+                  transition={{ duration: 0.3 }}
                   className="w-full"
                 >
                   <img
-              
                     src={movie.backdrop_path}
                     className="w-full aspect-video object-cover"
                     alt=""
@@ -47,7 +44,7 @@ const MyMovies = ({postedMovies}) => {
                 <motion.div
                   initial={{ y: 200 }}
                   animate={{ y: 0 }}
-                  transition={{duration: 1}}
+                  transition={{ duration: 1 }}
                   className="w-full h-full absolute flex flex-col items-center justify-center p-4 text-white text-center bg-black/20 z-20"
                   onMouseEnter={() => setIsShown(movie.id)}
                   onMouseLeave={() => setIsShown(false)}
@@ -59,7 +56,7 @@ const MyMovies = ({postedMovies}) => {
                         initial={{ opacity: 0, x: 0 }}
                         animate={{ opacity: 1, x: 0 }}
                         exit={{ opacity: 0, x: -100 }}
-                        transition={{duration: .2}}
+                        transition={{ duration: 0.2 }}
                         className="items-center gap-2 flex justify-start w-full whitespace-nowrap"
                       >
                         <div className="p-2 rounded-full bg-black/30 border border-white">
@@ -96,9 +93,9 @@ const MyMovies = ({postedMovies}) => {
                         </div>
                       </div>
                       <div className="flex justify-between">
-                        <div className="flex items-center">
+                        <div className="flex items-center justify-center pl-2 font-semibold text-center">
                           <AiFillStar className="text-emerald-400" />
-                          {movie.vote_average}
+                          --
                         </div>
                       </div>
                     </motion.div>
