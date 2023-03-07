@@ -24,7 +24,7 @@ console.log(postedMovies)
             >
               <img
                 key={i}
-                src={`https://image.tmdb.org/t/p/w500/${postedMovies[i].backdrop_path}`}
+                src={movie.backdrop_path}
                 className="w-full aspect-video object-cover"
                 alt=""
               />
