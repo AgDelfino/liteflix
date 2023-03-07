@@ -7,7 +7,9 @@ import Navbar from "./Components/Navbar";
 import Featured from "./Components/Featured";
 import Popular from "./Components/Popular";
 import AddMovie from "./Components/AddMovie";
-
+import { FiChevronDown } from "react-icons/fi";
+import MoviesModal from "./Components/MoviesModal";
+import MyMovies from "./Components/MyMovies";
 
 function App() {
   const [popular, setPopular] = useState([]);
@@ -18,6 +20,10 @@ function App() {
     JSON.parse(localStorage.getItem("postedMovies")) || []
   );
   const [myMovies, setMyMovies] = useState(false);
+
+  const handlerModal = () => {
+    setModal(!modal);
+  };
 
   useEffect(() => {
     localStorage.setItem("postedMovies", JSON.stringify(postedMovies));
@@ -68,16 +74,44 @@ function App() {
                 </section>
                 <section
                   id="popular"
-                  className="h-screen lg:h-[80vh] flex items-start pt-16 md:pt-28 lg:pt-6 2xl:pt-4"
+                  className="h-screen lg:h-[80vh] flex items-start pt-16 md:pt-28 lg:pt-6 2xl:pt-4 flex-col justify-start"
                 >
-                  <Popular
-                    popular={popular}
-                    setModal={setModal}
-                    modal={modal}
-                    postedMovies={postedMovies}
-                    myMovies={myMovies}
-                    setMyMovies={setMyMovies}
-                  />
+                  <div className="flex space-x-2">
+                    <span className="text-white">VER: </span>
+                    <button onClick={handlerModal}>
+                      <span className="text-white flex items-center justify-center space-x-1 font-semibold">
+                        POPULAR{" "}
+                        <FiChevronDown
+                          className={`transform ${
+                            !modal ? "rotate-0" : "-rotate-180"
+                          } transition-transform`}
+                        />{" "}
+                      </span>
+                    </button>
+                    <AnimatePresence>
+                      {modal && (
+                        <MoviesModal
+                          setMyMovies={setMyMovies}
+                          setModal={setModal}
+                        />
+                      )}
+                    </AnimatePresence>
+                  </div>
+                  <AnimatePresence>
+                    {!myMovies && (
+                      <Popular
+                        popular={popular}
+                        setModal={setModal}
+                        modal={modal}
+                        postedMovies={postedMovies}
+                        myMovies={myMovies}
+                        setMyMovies={setMyMovies}
+                      />
+                    )}
+                    <AnimatePresence>
+                      {myMovies && <MyMovies postedMovies={postedMovies} />}
+                    </AnimatePresence>
+                  </AnimatePresence>
                 </section>
               </div>
             </div>

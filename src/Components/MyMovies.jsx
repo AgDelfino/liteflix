@@ -3,14 +3,18 @@ import { BsPlay } from "react-icons/bs";
 import { AiFillStar } from "react-icons/ai";
 import { TbMovieOff } from "react-icons/tb";
 import { AnimatePresence, motion } from "framer-motion";
+import { useState } from "react";
 
-const MyMovies = ({ postedMovies, isShown, setIsShown }) => {
+const MyMovies = ({postedMovies}) => {
+
+  const [isShown, setIsShown] = useState(false)
+
   return (
     <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      transition={{ duration: 1 }}
+      
+      transition={{ duration: .4 }}
       className="flex flex-col space-y-2 md:space-y-0 md:grid md:grid-cols-2 md:gap-10 lg:flex lg:flex-col lg:gap-2 relative"
     >
       <AnimatePresence>
@@ -21,6 +25,7 @@ const MyMovies = ({ postedMovies, isShown, setIsShown }) => {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
+                transition={{duration: 1}}
                 className="relative w-48 md:w-64 lg:w-44 flex flex-col items-center justify-center overflow-hidden 2xl:w-56"
                 key={i}
               >
@@ -28,8 +33,7 @@ const MyMovies = ({ postedMovies, isShown, setIsShown }) => {
                 <motion.div
                   initial={{ y: 200 }}
                   animate={{ y: 0 }}
-                  exit={{ y: 200 }}
-                  transition={{duration: .2}}
+                  transition={{duration: .3}}
                   className="w-full"
                 >
                   <img
