@@ -39,7 +39,7 @@ function App() {
 
   useEffect(() => {
     console.log("Thanks LiteBox for this oportunity")
-  })
+  },[])
 
 
   return (
