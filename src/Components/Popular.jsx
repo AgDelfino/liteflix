@@ -59,13 +59,13 @@ const Popular = ({ popular, setModal, modal }) => {
                       initial={{opacity: 0, x:0}}
                       animate={{opacity: 1, x:0}}
                       exit={{opacity: 0, x: -100}}
-                      className="items-center gap-2 flex">
+                      className="items-center gap-2 flex justify-start w-full whitespace-nowrap">
                         <div className="p-2 rounded-full bg-black/30 border border-white">
                           <BsPlay className="text-xl" />
                         </div>
                         <span className="text-xs uppercase tracking-[2px]">
                           {movie.title.length > 15
-                            ? movie.title.slice(0, 15).concat("...")
+                            ? movie.title.slice(0, 10).concat("...")
                             : movie.title}
                         </span>
                       </motion.div>

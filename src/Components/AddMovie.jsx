@@ -1,40 +1,47 @@
 import { AiOutlinePaperClip } from "react-icons/ai";
 import { HiOutlineX } from "react-icons/hi";
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import { useState } from "react";
 import { uploadNewMovie } from "../Services/uploadImage";
+import LoaderMovies from "./LoaderMovies";
 
 const AddMovie = ({ setAddMovies, postedMovies, setPostedMovies }) => {
   const exitHandler = () => {
     setAddMovies(false);
   };
 
-  const [image, setImage] = useState({});
-  const [title, setTitle] = useState("")
- 
-  
+  const [image, setImage] = useState(null);
+  const [title, setTitle] = useState("");
+  const [file, setFile] = useState(null);
 
   const onFileChange = (e) => {
-    let file = e.target.files[0]
-    setImage(file)
-  }
+    let file = e.target.files[0];
+
+    if (file.type.startsWith("image/")) {
+      setImage(file);
+      setFile(file);
+    } else {
+      setFile(file);
+      setTimeout(() => {
+        setFile(null);
+      }, 5000);
+    }
+  };
 
   const onTitleChange = (e) => {
-    let title = e.target.value
-    setTitle(title)
-  }
+    let title = e.target.value;
+    setTitle(title);
+  };
 
   const onSubmit = async (e) => {
-    const uploaded =  await uploadNewMovie(image)
-    const id = uploaded.file
-    const url = `https://ucarecdn.com/${id}/`
-    
-    const movie = {original_title: title,  id, backdrop_path: url}
-    
-    setPostedMovies([...postedMovies, movie])
-  }
+    const uploaded = await uploadNewMovie(image);
+    const id = uploaded.file;
+    const url = `https://ucarecdn.com/${id}/`;
 
-  
+    const movie = { original_title: title, id, backdrop_path: url };
+
+    setPostedMovies([...postedMovies, movie]);
+  };
 
   return (
     <motion.div
@@ -62,19 +69,46 @@ const AddMovie = ({ setAddMovies, postedMovies, setPostedMovies }) => {
         <h4 className="text-emerald-400 text-sm font-bold p-3 tracking-[3px]">
           AGREGAR PELICULA
         </h4>
-        <label htmlFor="image" className="flex items-center border border-dashed p-10">
-          <AiOutlinePaperClip />
-          AGREGA UN ARCHIVO Ó ARRÁSTRALO AQUÍ
-          <input id="image" type="file" accept="image/*" hidden onChange={onFileChange}/>
-        </label>
+        <div className="relative w-full flex flex-col h-24 items-center">
+        <AnimatePresence>
+          {file && <LoaderMovies file={file} />}
+        </AnimatePresence>
+        <AnimatePresence>
+          {!file && (
+            <motion.label
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1, transition: {duration: 1} }}
+              exit={{ opacity: 0, transition: {delay: .1} }}
+              transition={{delay: .1}}
+              htmlFor="image"
+              className="flex items-center border border-dashed h-24 w-[70%] justify-center absolute"
+            >
+              <AiOutlinePaperClip />
+              AGREGA UN ARCHIVO Ó ARRÁSTRALO AQUÍ
+              <input
+                id="image"
+                type="file"
+                accept="image/*"
+                hidden
+                onChange={onFileChange}
+              />
+            </motion.label>
+          )}
+        </AnimatePresence>
+        </div>
         
+
         <input
           onChange={onTitleChange}
           type="text"
           placeholder="título"
           className="outline-none focus:bg-[#E5E5E5]/25 text-sm uppercase bg-transparent border-b-2 focus:border-emerald-400 border-zinc-500 text-center tracking-[3px] w-[60%] md:w-[35%] transition-all"
         />
-        <button onClick={onSubmit} className="px-8 py-2 bg-[#E5E5E5] text-[#242424] text-sm lg:tracking-[3px] w-[60%] md:w-[35%]">
+        <button
+          onClick={onSubmit}
+          disabled={title === "" || !image}
+          className={`px-8 py-2 bg-[#E5E5E5] text-[#242424] text-sm lg:tracking-[3px] w-[60%] md:w-[35%] transition-all duration-300 ease-in-out disabled:bg-black/30`}
+        >
           SUBIR PELÍCULA
         </button>
         <button
