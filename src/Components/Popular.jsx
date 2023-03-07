@@ -6,12 +6,11 @@ import MoviesModal from "./MoviesModal";
 import { useState } from "react";
 import MyMovies from "./MyMovies";
 
-const Popular = ({ popular, setModal, modal, postedMovies }) => {
+const Popular = ({ popular, setModal, modal, postedMovies, setMyMovies, myMovies}) => {
   const handlerModal = () => {
     setModal(!modal);
   };
 
-  const [myMovies, setMyMovies] = useState(false);
   const [isShown, setIsShown] = useState(false);
 
   return (
@@ -72,7 +71,7 @@ const Popular = ({ popular, setModal, modal, postedMovies }) => {
                           <motion.div
                             initial={{ x: -200 }}
                             animate={{ x: 0, transition:{duration: .3} }}
-                            exit={{  x: -200, transition:{duration: .4} }}
+                            exit={{  x: -200, transition:{duration: .3} }}
                             className="items-center gap-2 flex justify-start w-full whitespace-nowrap"
                           >
                             <div className="p-2 rounded-full bg-black/30 border border-white">

@@ -7,6 +7,7 @@ import Navbar from "./Components/Navbar";
 import Featured from "./Components/Featured";
 import Popular from "./Components/Popular";
 import AddMovie from "./Components/AddMovie";
+import getWindowWidth from "./Services/getViewportWidth";
 
 function App() {
   const [popular, setPopular] = useState([]);
@@ -14,12 +15,19 @@ function App() {
   const [modal, setModal] = useState(false);
   const [addMovies, setAddMovies] = useState(false);
   const [postedMovies, setPostedMovies] = useState(JSON.parse(localStorage.getItem("postedMovies")) || [])
+  const [myMovies, setMyMovies] = useState(false);
+  const [screen, setScreen] = useState(0)
 
   useEffect(() => {
     localStorage.setItem("postedMovies", JSON.stringify(postedMovies))
     console.log(postedMovies)
   }, [postedMovies])
 
+  
+
+  useEffect(() => {
+    setScreen(getWindowWidth().width)
+  })
   
 
   useEffect(() => {
@@ -61,13 +69,15 @@ function App() {
                 </section>
                 <section
                   id="popular"
-                  className="h-screen lg:h-[80vh] flex md:items-center lg:items-center xl:items-center 2xl:mt-2"
+                  className="h-screen lg:h-[80vh] flex items-start pt-16 md:pt-28 lg:pt-6 2xl:pt-4"
                 >
                   <Popular
                     popular={popular}
                     setModal={setModal}
                     modal={modal}
                     postedMovies={postedMovies}
+                    myMovies={myMovies}
+                    setMyMovies={setMyMovies}
                   />
                 </section>
               </div>
