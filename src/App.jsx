@@ -66,6 +66,7 @@ function App() {
                     popular={popular}
                     setModal={setModal}
                     modal={modal}
+                    postedMovies={postedMovies}
                   />
                 </section>
               </div>

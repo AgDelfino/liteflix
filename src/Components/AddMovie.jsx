@@ -38,7 +38,7 @@ const AddMovie = ({ setAddMovies, postedMovies, setPostedMovies }) => {
     const id = uploaded.file;
     const url = `https://ucarecdn.com/${id}/`;
 
-    const movie = { original_title: title, id, backdrop_path: url };
+    const movie = { title, id, backdrop_path: url };
 
     setPostedMovies([...postedMovies, movie]);
   };
