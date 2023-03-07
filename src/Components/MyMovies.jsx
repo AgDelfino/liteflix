@@ -1,8 +1,7 @@
 import React from "react";
-import { motion, AnimatePresence } from "framer-motion";
 import { BsPlay } from "react-icons/bs";
 import { AiFillStar } from "react-icons/ai";
-import { AnimatePresence, m, motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 
 
 const MyMovies = ({ postedMovies, isShown, setIsShown }) => {
