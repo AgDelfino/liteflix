@@ -37,6 +37,10 @@ function App() {
     }, 2500);
   }, []);
 
+  useEffect(() => {
+    console.log("Thanks LiteBox for this oportunity")
+  })
+
 
   return (
     <div className="overflow-hidden h-screen w-screen">
