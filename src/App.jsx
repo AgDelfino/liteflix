@@ -7,28 +7,22 @@ import Navbar from "./Components/Navbar";
 import Featured from "./Components/Featured";
 import Popular from "./Components/Popular";
 import AddMovie from "./Components/AddMovie";
-import getWindowWidth from "./Services/getViewportWidth";
+
 
 function App() {
   const [popular, setPopular] = useState([]);
   const [featured, setFeatured] = useState({});
   const [modal, setModal] = useState(false);
   const [addMovies, setAddMovies] = useState(false);
-  const [postedMovies, setPostedMovies] = useState(JSON.parse(localStorage.getItem("postedMovies")) || [])
+  const [postedMovies, setPostedMovies] = useState(
+    JSON.parse(localStorage.getItem("postedMovies")) || []
+  );
   const [myMovies, setMyMovies] = useState(false);
-  const [screen, setScreen] = useState(0)
 
   useEffect(() => {
-    localStorage.setItem("postedMovies", JSON.stringify(postedMovies))
-    console.log(postedMovies)
-  }, [postedMovies])
-
-  
-
-  useEffect(() => {
-    setScreen(getWindowWidth().width)
-  })
-  
+    localStorage.setItem("postedMovies", JSON.stringify(postedMovies));
+    console.log(postedMovies);
+  }, [postedMovies]);
 
   useEffect(() => {
     setTimeout(() => {
@@ -47,7 +41,12 @@ function App() {
         >
           <AnimatePresence>
             {addMovies && (
-              <AddMovie addMovies={addMovies} setAddMovies={setAddMovies} postedMovies={postedMovies} setPostedMovies={setPostedMovies} />
+              <AddMovie
+                addMovies={addMovies}
+                setAddMovies={setAddMovies}
+                postedMovies={postedMovies}
+                setPostedMovies={setPostedMovies}
+              />
             )}
           </AnimatePresence>
           <div className="absolute lg:fixed overflow-hidden h-screen w-screen">

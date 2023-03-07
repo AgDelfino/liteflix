@@ -1,9 +1,10 @@
 import { AiOutlinePaperClip } from "react-icons/ai";
 import { HiOutlineX } from "react-icons/hi";
 import { AnimatePresence, motion } from "framer-motion";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { uploadNewMovie } from "../Services/uploadImage";
 import LoaderMovies from "./LoaderMovies";
+import { FileUploader } from "react-drag-drop-files";
 
 const AddMovie = ({ setAddMovies, postedMovies, setPostedMovies }) => {
   const exitHandler = () => {
@@ -14,10 +15,12 @@ const AddMovie = ({ setAddMovies, postedMovies, setPostedMovies }) => {
   const [title, setTitle] = useState("");
   const [file, setFile] = useState(null);
 
-  const onFileChange = (e) => {
-    let file = e.target.files[0];
+  
 
-    if (file.type.startsWith("image/")) {
+  const handleChange = (file) => {
+//    let file = e.target.files[0];
+    console.log(file)
+    if (file.type.startsWith("image/") && file.size > 500) {
       setImage(file);
       setFile(file);
     } else {
@@ -27,6 +30,10 @@ const AddMovie = ({ setAddMovies, postedMovies, setPostedMovies }) => {
       }, 5000);
     }
   };
+
+  useEffect(()=> {
+    FileUploader
+  },[file])
 
   const onTitleChange = (e) => {
     let title = e.target.value;
@@ -70,33 +77,32 @@ const AddMovie = ({ setAddMovies, postedMovies, setPostedMovies }) => {
           AGREGAR PELICULA
         </h4>
         <div className="relative w-full flex flex-col h-24 items-center">
-        <AnimatePresence>
-          {file && <LoaderMovies file={file} />}
-        </AnimatePresence>
-        <AnimatePresence>
-          {!file && (
-            <motion.label
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1, transition: {duration: 1} }}
-              exit={{ opacity: 0, transition: {delay: .1} }}
-              transition={{delay: .1}}
-              htmlFor="image"
-              className="flex items-center border border-dashed h-24 w-[70%] justify-center absolute"
-            >
-              <AiOutlinePaperClip />
-              AGREGA UN ARCHIVO Ó ARRÁSTRALO AQUÍ
-              <input
-                id="image"
-                type="file"
-                accept="image/*"
-                hidden
-                onChange={onFileChange}
-              />
-            </motion.label>
-          )}
-        </AnimatePresence>
+          <AnimatePresence>
+            {file && <LoaderMovies file={file} />}
+          </AnimatePresence>
+          <AnimatePresence>
+            {!file && (
+              <motion.label
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1, transition: { duration: 1 } }}
+                exit={{ opacity: 0, transition: { delay: 0.1 } }}
+                transition={{ delay: 0.1 }}
+                htmlFor="image"
+                className="flex items-center border border-dashed h-24 w-[70%] justify-center absolute"
+              >
+                <AiOutlinePaperClip />
+                AGREGA UN ARCHIVO Ó ARRÁSTRALO AQUÍ
+                <div className="absolute w-full left-3 bg-white opacity-0">
+                  <FileUploader
+                    handleChange={handleChange}
+                    name="file"
+                  
+                  />
+                </div>
+              </motion.label>
+            )}
+          </AnimatePresence>
         </div>
-        
 
         <input
           onChange={onTitleChange}
