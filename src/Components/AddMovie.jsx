@@ -94,7 +94,7 @@ const AddMovie = ({ setAddMovies, postedMovies, setPostedMovies }) => {
                   className="flex items-center border border-dashed h-24 w-[70%] justify-center absolute"
                 >
                   <AiOutlinePaperClip />
-                  <span className="uppercase tracking-[2px] text-sm flex items-center">{screen <= 425 ? "agrega un archivo" : "agrega un archivo ó arrastralo y soltalo aquí"}</span>
+                  <span className="uppercase tracking-[2px] text-sm flex items-center">{screen <= 425 ? "agrega una imagen" : "agregá una imagen ó arrastrala y soltala aquí"}</span>
                   <div className="absolute w-full left-3 bg-white opacity-0">
                     <FileUploader handleChange={handleChange} name="file" />
                   </div>
