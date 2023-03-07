@@ -10,7 +10,7 @@ const Popular = ({ popular, myMovies }) => {
   return (
     <>
       <div className="flex flex-col items-center space-y-1 mx-auto justify-center relative">
-        <div className="flex flex-col space-y-2 md:space-y-0 md:grid md:grid-cols-2 md:gap-10 lg:flex lg:flex-col lg:gap-2 relative">
+        <div className="flex flex-col space-y-2 md:space-y-0 md:grid md:grid-cols-2 md:gap-10 lg:flex lg:flex-col lg:gap-2 relative items-center">
           <AnimatePresence>
             {!myMovies &&
               popular.slice(0, 4).map((movie, i) => {
