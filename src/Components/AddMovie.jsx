@@ -6,21 +6,19 @@ import { uploadNewMovie } from "../Services/uploadImage";
 import LoaderMovies from "./LoaderMovies";
 import { FileUploader } from "react-drag-drop-files";
 import Congrats from "./Congrats";
+import getViewportWidth from "../Services/getViewportWidth";
 
-const AddMovie = ({
-  setAddMovies,
-  postedMovies,
-  setPostedMovies,
-  addMMovies,
-}) => {
-  const exitHandler = () => {
-    setAddMovies(false);
-  };
-
+const AddMovie = ({ setAddMovies, postedMovies, setPostedMovies }) => {
   const [image, setImage] = useState(null);
   const [title, setTitle] = useState("");
   const [file, setFile] = useState(null);
   const [movieUploaded, setMovieUploaded] = useState(false);
+  const [screen, setScreen] = useState(0);
+
+
+  const exitHandler = () => {
+    setAddMovies(false);
+  };
 
   const handleChange = (file) => {
     if (file.type.startsWith("image/") && file.size > 500) {
@@ -49,12 +47,17 @@ const AddMovie = ({
     setMovieUploaded(true);
   };
 
+  useEffect(()=> {
+    const screen = getViewportWidth()
+    setScreen(screen)
+  }, [])
+
   return (
     <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      className="text-white w-screen h-screen absolute z-30 bg-black/25 backdrop-blur-sm flex items-center justify-center"
+      className="text-white w-screen h-screen absolute z-50 bg-black/25 backdrop-blur-sm flex items-center justify-center"
     >
       {!movieUploaded && (
         <div className="w-full h-full md:h-[60%] md:w-[70%] lg:w-[70%] xl:w-[50%] bg-[#242424] flex flex-col items-center justify-center space-y-6 md:space-y-0 md:justify-evenly relative">
@@ -91,7 +94,7 @@ const AddMovie = ({
                   className="flex items-center border border-dashed h-24 w-[70%] justify-center absolute"
                 >
                   <AiOutlinePaperClip />
-                  AGREGA UN ARCHIVO Ó ARRÁSTRALO AQUÍ
+                  <span className="uppercase tracking-[2px] text-sm flex items-center">{screen <= 425 ? "agrega un archivo" : "agrega un archivo ó arrastralo y soltalo aquí"}</span>
                   <div className="absolute w-full left-3 bg-white opacity-0">
                     <FileUploader handleChange={handleChange} name="file" />
                   </div>

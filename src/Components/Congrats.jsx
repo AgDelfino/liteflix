@@ -17,13 +17,13 @@ const Congrats = ({ title, setAddMovies, addMovies }) => {
         <h2 className="text-emerald-400 font-thin text-4xl">
           <span className="font-semibold text-emerald-400">LITE</span>FLIX
         </h2>
-        <h3 className="font-semibold text-2xl">¡FELICITACIONES!</h3>
-        <p className="uppercase tracking-[2px]">
-          {title} fue correctamente subida.
+        <h3 className="font-semibold text-2xl text-center">¡FELICITACIONES!</h3>
+        <p className="uppercase tracking-[2px] text-center">
+          {title} fue subida correctamente.
         </p>
         <button
           onClick={goHomeHandler}
-          className="py-2 w-[25%] bg-white text-[#242424]"
+          className="py-2 w-[90%] md:w-[25%] bg-white text-[#242424]"
         >
           IR A HOME
         </button>
