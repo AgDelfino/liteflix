@@ -17,6 +17,7 @@ function App() {
 
   useEffect(() => {
     localStorage.setItem("postedMovies", JSON.stringify(postedMovies))
+    console.log(postedMovies)
   }, [postedMovies])
 
   

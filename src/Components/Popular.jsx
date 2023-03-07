@@ -124,7 +124,7 @@ const Popular = ({ popular, setModal, modal, postedMovies }) => {
           </AnimatePresence>
           <AnimatePresence>
           {
-            myMovies && <MyMovies/>
+            myMovies && <MyMovies postedMovies={postedMovies} isShown={isShown} setIsShown={setIsShown}/>
           }
           </AnimatePresence>
           
